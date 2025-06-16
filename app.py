@@ -4,6 +4,7 @@ import requests
 import tempfile
 import os
 
+app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.get_json()
@@ -18,6 +19,3 @@ def webhook():
     # ... procedi con Selenium o altro ...
     return jsonify({"status": "ok", "email": email}), 200
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
