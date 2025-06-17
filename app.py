@@ -40,7 +40,8 @@ def webhook():
         }), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-        @app.route('/', methods=['GET'])
+
+# ✅ Questa parte era il problema: ora è fuori dal blocco try/except
+@app.route('/', methods=['GET'])
 def home():
     return 'Service is up and running!', 200
-
